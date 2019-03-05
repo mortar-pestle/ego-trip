@@ -1,2 +1,6 @@
 language: csharp
-solution: ego-trip/ego-trip.sln
+solution: "./ego-trip/ego-trip.sln"
+install:
+  - pwd
+  - ls
+  - nuget restore ego-trip/ego-trip.sln
