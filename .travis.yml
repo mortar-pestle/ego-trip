@@ -3,4 +3,4 @@ solution: "./ego-trip/ego-trip.sln"
 install:
   - pwd
   - ls
-  - nuget restore ego-trip/ego-trip.sln
+  - nuget restore "./ego-trip/ego-trip.sln"
