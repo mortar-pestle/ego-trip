@@ -1,2 +1,2 @@
 language: csharp
-solution: ego_trip/ego-trip.sln
+solution: /ego-trip/ego-trip.sln
