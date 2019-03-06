@@ -1,5 +1,5 @@
 dist: xenial
-sudo: required
+sudo: true
 language: csharp
 solution: "ego-trip.sln"
 before_install:

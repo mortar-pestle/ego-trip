@@ -18,7 +18,7 @@ install() {
 
   echo "Installing "`basename "$package"`
   #installer -dumplog -package `basename "$package"` -target /
-  apt install `basename "$package"`
+  apt install `basename "$package"` --user
 }
 
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
