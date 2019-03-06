@@ -1,4 +1,6 @@
-﻿public class AdsInterest
+﻿using System.Text;
+
+public class AdsInterest
 {
     public string[] topics;
 
@@ -7,7 +9,7 @@
         string output = "";
         for (int i = 0; i < topics.Length; i ++ )
         {
-            output += topics[i] + "\n";
+            output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(topics[i])) + "\n";
         }
         return output;
     }
