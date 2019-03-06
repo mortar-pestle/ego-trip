@@ -3,6 +3,6 @@ solution: "ego-trip.sln"
 install:
   - pwd
   - ls
+  - ./scripts/install.sh
   - cd ego-trip
   - ls
-  - nuget restore ego-trip.sln
