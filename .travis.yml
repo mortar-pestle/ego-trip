@@ -1,12 +1,14 @@
 dist: xenial
 language: csharp
 solution: "ego-trip.sln"
+before_install:
+  - chmod a+x ./scripts/install.sh
 install:
   - pwd
   - ls
   - cd scripts
   - ls
-  - sudo install.sh
+  - install.sh
   - cd ..
   - cd ego-trip
   - ls
