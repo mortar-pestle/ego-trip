@@ -4,6 +4,6 @@ solution: "ego-trip.sln"
 install:
   - pwd
   - ls
-  - sudo ./scripts/install.sh
+  - sudo scripts/install.sh
   - cd ego-trip
   - ls
