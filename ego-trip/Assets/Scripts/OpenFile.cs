@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class OpenFile : MonoBehaviour
 {
-    string data = "JSON goes here";
+    AdsInterest data;
    [MenuItem("Example/Overwrite Texture")]
    public void OnClick()
    {
@@ -18,12 +18,16 @@ public class OpenFile : MonoBehaviour
        {
            string fileContent = File.ReadAllText(path);
            Debug.Log(fileContent);
-           data = fileContent;
-        //    data = JsonUtility.FromJson<string>(fileContent);
-        //    Debug.Log(data);
+
+            //data = fileContent;
+            data = JsonUtility.FromJson<AdsInterest>(fileContent);
+            Debug.Log(data.toString());
        }
    }
     void OnGUI() {
-        GUI.Box(new Rect(100, 100, 300, int.MaxValue), data);
+        if(data != null)
+        {
+            GUI.Box(new Rect(100, 100, 300, int.MaxValue), data.toString());
+        }
       }
 }
