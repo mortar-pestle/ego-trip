@@ -8,7 +8,7 @@ install:
   - ls
   - cd scripts
   - ls
-  - install.sh
+  - sh ./install.sh
   - cd ..
   - cd ego-trip
   - ls
