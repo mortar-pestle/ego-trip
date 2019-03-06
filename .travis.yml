@@ -1,4 +1,4 @@
-dist: xenial
+osx_image: xcode8.1
 sudo: true
 language: csharp
 solution: "ego-trip.sln"
