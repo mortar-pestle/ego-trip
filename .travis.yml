@@ -35,11 +35,14 @@ jobs:
       env: BUILD_TARGET=StandaloneWindows64
       script:
         - "chmod +x ./ci/before_script.sh && ./ci/docker_build.sh "
-      addons:
-        artifacts:
-          debug: true
-          target_paths:
-            - "./Builds/"
+        - "zip -r StandaloneWindows64.zip ./Builds/StandaloneWindows64/"
+      deploy:
+        provider: releases
+        api_key: $GITHUB_API_KEY
+        file: StandaloneWindows64.zip
+        skip_cleanup: true
+        on:
+          tags: true
     - stage: build
       env: BUILD_TARGET=WebGL
       script: "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
