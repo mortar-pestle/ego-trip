@@ -18,7 +18,6 @@ public class OpenFile : MonoBehaviour
        string folderPath = EditorUtility.OpenFolderPanel("Load Facebook data", "", "");
 
         Debug.Log(folderPath);
-        Debug.Log("AHAHAHAHAHAHAHA");
 
        string filePath = Path.Combine(folderPath + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
 
