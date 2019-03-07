@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using System.Text;
 using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
@@ -10,12 +14,15 @@ public class OpenFile : MonoBehaviour
     public Text info;
     AdsContactList dataAsJson;
     string dataAsString;
-   
+    
    public void OnClick()
    {
        Debug.Log("clicked");
+        string folderPath = "";
 
-       string folderPath = EditorUtility.OpenFolderPanel("Load Facebook data", "", "");
+        #if UNITY_EDITOR
+        folderPath = EditorUtility.OpenFolderPanel("Load Facebook data", "", "");
+        #endif
 
         Debug.Log(folderPath);
 
