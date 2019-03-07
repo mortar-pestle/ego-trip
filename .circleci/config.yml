@@ -1,84 +1,67 @@
-image: "gableroux/unity3d:2018.3.7f1"
+version: 2
+references:
+  docker_image: &docker_image
+    docker:
+    - image: gableroux/unity3d:2018.3.7f1
+  setup_unity_license_env_var: &setup_unity_license_env_var
+    command: |
+      openssl version
+      openssl aes-256-cbc -md md5 -d -in ./ci/Unity_v2018.x.ulf-cipher -out Unity_v2018.x.ulf -k $KEY
+      export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
+      rm Unity_v2018.x.ulf
+jobs:
+  test_editmode:
+    <<: *docker_image
+    steps:
+    # TODO: Add git to unity image so this is not required anymore
+    # this will prevent following error on 'checkout' step:
+    # Either git or ssh (required by git to clone through SSH) is not installed in the image. Falling back to CircleCI's native git client but the behavior may be different from official git. If this is an issue, please use an image that has official git and ssh installed.
+    - run:
+        command: apt-get update && apt-get install -y git && git --version
+    - checkout
+    - run:
+        <<: *setup_unity_license_env_var
+    - run:
+        environment:
+          TEST_PLATFORM: editmode
+        command: "./ci/test.sh"
+    - store_artifacts:
+        path: "$(pwd)/$TEST_PLATFORM-results.xml"
+        destination: "$TEST_PLATFORM-results.xml"
+  test_playmode:
+    <<: *docker_image
+    steps:
+    - run:
+        command: apt-get update && apt-get install -y git && git --version
+    - checkout
+    - run:
+        <<: *setup_unity_license_env_var
+    - run:
+        environment:
+          TEST_PLATFORM: playmode
+        command: "./ci/test.sh"
+    - store_artifacts:
+        path: "$(pwd)/$TEST_PLATFORM-results.xml"
+        destination: "$TEST_PLATFORM-results.xml"
+  build_StandaloneLinux64:
+    <<: *docker_image
+    steps:
+    - run:
+        command: apt-get update && apt-get install -y git && git --version
+    - checkout
+    - run:
+        <<: *setup_unity_license_env_var
+    - run:
+        environment:
+          BUILD_TARGET: StandaloneLinux64
+        command: "./ci/build.sh"
+    - store_artifacts:
+        path: "./Builds/"
+workflows:
+  version: 2
+  test_and_build:
+    jobs:
+    - test_editmode
+    - test_playmode
+    - build_StandaloneLinux64
 
-stages:
-- test
-- build
-- deploy
-
-variables:
-  BUILD_NAME: ExampleProjectName
-
-.unity_before_script: &unity_before_script
-  before_script:
-  - chmod +x ./ci/before_script.sh && ./ci/before_script.sh
-
-.test: &test
-  stage: test
-  <<: *unity_before_script
-  script:
-  - chmod +x ./ci/test.sh && ./ci/test.sh
-  artifacts:
-    paths:
-    - $(pwd)/$TEST_PLATFORM-results.xml
-
-test-editmode:
-  <<: *test
-  variables:
-    TEST_PLATFORM: editmode
-
-test-playmode:
-  <<: *test
-  variables:
-    TEST_PLATFORM: playmode
-
-.build: &build
-  stage: build
-  #tip: you can reuse same stage to do everything in parallel and reduce overall time
-  # stage: test
-  <<: *unity_before_script
-  script:
-  - chmod +x ./ci/build.sh && ./ci/build.sh
-
-  artifacts:
-    paths:
-    - ./Builds/
-#tip: uncomment following lines if you'd like to build only on master branch
-#   only:
-#     - master
-
-build-StandaloneLinux64:
-  <<: *build
-  variables:
-    BUILD_TARGET: StandaloneLinux64
-
-build-StandaloneOSX:
-  <<: *build
-  variables:
-    BUILD_TARGET: StandaloneOSX
-
-#Note: build target names changed in recent versions, use this for versions < 2017.2:
-# build-StandaloneOSXUniversal:
-#   <<: *build
-#   variables:
-#     BUILD_TARGET: StandaloneOSXUniversal
-
-build-StandaloneWindows64:
-  <<: *build
-  variables:
-    BUILD_TARGET: StandaloneWindows64
-
-build-WebGL:
-  <<: *build
-  variables:
-    BUILD_TARGET: WebGL
-
-pages:
-  image: alpine:latest
-  stage: deploy
-  script:
-  - mv ./Builds/WebGL public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
