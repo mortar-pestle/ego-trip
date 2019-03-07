@@ -2,7 +2,7 @@ using UnityEditor;
 using System.Linq;
 using System;
 
-class BuildCommand
+static class BuildCommand
 {
 	static string GetArgument (string name)
 	{
