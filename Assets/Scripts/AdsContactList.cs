@@ -7,9 +7,21 @@ public class AdsContactList
     public string toString()
     {
         string output = "";
-        for (int i = 0; i < custom_audiences.Length; i++)
+        if(custom_audiences.Length >= 300)
         {
-            output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[i])) + "\n";
+            int limit = 300;
+            for (int i = 0; i < limit; i++)
+            {
+                output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[i])) + "\n";
+            }
+            output += "(...)";
+        }
+        else
+        {
+            for (int i = 0; i < custom_audiences.Length; i++)
+            {
+                output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[i])) + "\n";
+            }
         }
         return output;
     }
