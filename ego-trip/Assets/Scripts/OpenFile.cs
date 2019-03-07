@@ -4,9 +4,10 @@ using UnityEngine;
 using System.IO;
 using UnityEditor;
 using System.Text;
-
+using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
 {
+    public Text info;
     AdsContactList dataAsJson;
     string dataAsString;
    [MenuItem("Example/Overwrite Texture")]
@@ -33,6 +34,7 @@ public class OpenFile : MonoBehaviour
             Debug.Log(dataAsString);
             dataAsString = dataAsJson.custom_audiences.Length + " businesses have your personal information.\n" + dataAsString;
             Debug.Log(dataAsJson.custom_audiences.Length);
+            info.text = dataAsString;
        }
         else
         {
@@ -40,10 +42,10 @@ public class OpenFile : MonoBehaviour
             Debug.LogError(dataAsString);
         }
     }
-    void OnGUI() {
-        if(dataAsString != null)
-        {
-            GUI.Box(new Rect(100, 100, 300, int.MaxValue), dataAsString);
-        }
-      }
+    // void OnGUI() {
+    //     if(dataAsString != null)
+    //     {
+    //         GUI.Box(new Rect(100, 100, 300, int.MaxValue), dataAsString);
+    //     }
+    //   }
 }
