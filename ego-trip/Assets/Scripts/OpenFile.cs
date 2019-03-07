@@ -7,7 +7,7 @@ using System.Text;
 
 public class OpenFile : MonoBehaviour
 {
-    AdsInterest dataAsJson;
+    AdsContactList dataAsJson;
     string dataAsString;
    [MenuItem("Example/Overwrite Texture")]
    public void OnClick()
@@ -28,9 +28,11 @@ public class OpenFile : MonoBehaviour
            Debug.Log(fileContent);
 
             //data = fileContent;
-            dataAsJson = JsonUtility.FromJson<AdsInterest>(fileContent);
+            dataAsJson = JsonUtility.FromJson<AdsContactList>(fileContent);
             dataAsString = dataAsJson.toString();
             Debug.Log(dataAsString);
+            dataAsString = dataAsJson.custom_audiences.Length + " businesses have your personal information.\n" + dataAsString;
+            Debug.Log(dataAsJson.custom_audiences.Length);
        }
         else
         {
