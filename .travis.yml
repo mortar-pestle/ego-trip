@@ -1,3 +1,4 @@
+sudo: required
 language: bash
 env:
   global:
@@ -11,6 +12,7 @@ before_install:
   - export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
   - rm Unity_v2018.x.ulf
   - docker pull $IMAGE_NAME
+  - sudo apt-get install zip
 jobs:
   include:
     - stage: build
@@ -33,7 +35,6 @@ jobs:
       env: BUILD_TARGET=StandaloneWindows64
       script:
         - "chmod +x ./ci/before_script.sh && ./ci/docker_build.sh "
-        - "apt install zip"
       addons:
         artifacts:
           debug: true
