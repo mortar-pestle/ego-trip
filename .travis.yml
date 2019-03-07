@@ -36,13 +36,16 @@ jobs:
       script:
         - "chmod +x ./ci/before_script.sh && ./ci/docker_build.sh "
         - "zip -r StandaloneWindows64.zip ./Builds/StandaloneWindows64/"
+      before_deploy:
+        - git config --local user.name $GIT_USER
+        - git config --local user.email $GIT_EMAIL
+        - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+        - git tag $TRAVIS_TAG
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
         file: StandaloneWindows64.zip
         skip_cleanup: true
-        on:
-          tags: true
     - stage: build
       env: BUILD_TARGET=WebGL
       script: "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
