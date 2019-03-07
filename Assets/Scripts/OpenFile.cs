@@ -10,7 +10,7 @@ public class OpenFile : MonoBehaviour
     public Text info;
     AdsContactList dataAsJson;
     string dataAsString;
-   [MenuItem("Example/Overwrite Texture")]
+   
    public void OnClick()
    {
        Debug.Log("clicked");
