@@ -40,6 +40,8 @@ jobs:
     script: "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
     addons:
       artifacts:
+	paths:
+	- "./Builds/"
         target_paths:
         - "./Builds/"
 
