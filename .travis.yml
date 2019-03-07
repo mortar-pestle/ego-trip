@@ -31,7 +31,11 @@ jobs:
             - "./Builds/"
     - stage: build
       env: BUILD_TARGET=StandaloneWindows64
-      script: "chmod +x ./ci/* && ./ci/docker_build.sh &&./ci/docker_build.sh"
+      script:
+        - "chmod +x ./ci/before_script.sh && ./ci/docker_build.sh "
+        - "pwd"
+        - "cd ./Builds/"
+        - "ls -a"
       addons:
         artifacts:
           debug: true
