@@ -34,7 +34,7 @@ jobs:
       script:
         - "chmod +x ./ci/before_script.sh && ./ci/docker_build.sh "
         - "pwd"
-        - "cd ./Builds/"
+        - "cd ./Builds/StandaloneWindows64/"
         - "ls -a"
       addons:
         artifacts:
