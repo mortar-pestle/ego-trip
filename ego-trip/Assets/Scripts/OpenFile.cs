@@ -7,28 +7,41 @@ using System.Text;
 
 public class OpenFile : MonoBehaviour
 {
-    AdsInterest data;
+    AdsInterest dataAsJson;
+    string dataAsString;
    [MenuItem("Example/Overwrite Texture")]
    public void OnClick()
    {
        Debug.Log("clicked");
 
-       string path = EditorUtility.OpenFilePanel("Overwrite with json", "", "json");
-       Debug.Log(path);
-       if (path.Length != 0)
+       string folderPath = EditorUtility.OpenFolderPanel("Load Facebook data", "", "");
+
+        Debug.Log(folderPath);
+
+       string filePath = Path.Combine(folderPath + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+
+
+       Debug.Log(filePath);
+       if (filePath != null && filePath.Length != 0)
        {
-           string fileContent = File.ReadAllText(path);
+           string fileContent = File.ReadAllText(filePath);
            Debug.Log(fileContent);
 
             //data = fileContent;
-            data = JsonUtility.FromJson<AdsInterest>(fileContent);
-            Debug.Log(data.toString());
+            dataAsJson = JsonUtility.FromJson<AdsInterest>(fileContent);
+            dataAsString = dataAsJson.toString();
+            Debug.Log(dataAsString);
        }
-   }
-    void OnGUI() {
-        if(data != null)
+        else
         {
-            GUI.Box(new Rect(100, 100, 300, int.MaxValue), data.toString());
+            dataAsString = "File not found! Please navigate to the right directory.";
+            Debug.LogError(dataAsString);
+        }
+    }
+    void OnGUI() {
+        if(dataAsString != null)
+        {
+            GUI.Box(new Rect(100, 100, 300, int.MaxValue), dataAsString);
         }
       }
 }
