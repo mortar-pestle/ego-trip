@@ -12,7 +12,6 @@ before_install:
   - export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
   - rm Unity_v2018.x.ulf
   - docker pull $IMAGE_NAME
-  - sudo apt-get install zip
 jobs:
   include:
     - stage: build
@@ -53,9 +52,13 @@ jobs:
           tags: true
     - stage: build
       env: BUILD_TARGET=WebGL
-      script: "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
-      addons:
-        artifacts:
-          debug: true
-          target_paths:
-            - "./Builds/"
+      script:
+        - "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
+        - "zip -r WebGL.zip ./Builds/WebGL/"
+      deploy:
+        provider: releases
+        api_key: $GITHUB_API_KEY
+        file: WebGL.zip
+        skip_cleanup: true
+        on:
+          tags: true
