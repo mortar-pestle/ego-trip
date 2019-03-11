@@ -10,7 +10,7 @@ public class OpenFile : MonoBehaviour
     public Text info;
     AdsContactList dataAsJson;
     string dataAsString;
-   [MenuItem("Example/Overwrite Texture")]
+   //[MenuItem("Example/Overwrite Texture")]
    public void OnClick()
    {
        Debug.Log("clicked");
@@ -21,8 +21,7 @@ public class OpenFile : MonoBehaviour
 
        string filePath = Path.Combine(folderPath + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
 
-
-       Debug.Log(filePath);
+        Debug.Log(filePath);
        if (filePath != null && filePath.Length != 0)
        {
            string fileContent = File.ReadAllText(filePath);
