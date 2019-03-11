@@ -1,30 +1,49 @@
 ﻿using UnityEngine;
-
 using System.Text;
 
 public class AdsContactList
 {
     public string[] custom_audiences;
 
-    public string toString()
+    public string[] toStringArray()
     {
-        string output = "";
-        if(custom_audiences.Length >= 300)
+        string[] output = new string[7];
+        int elementLimit;
+        int arrayLimit;
+        int currentIndex = 0;
+
+        if (custom_audiences.Length >= 2100)
         {
-            int limit = 300;
-            for (int i = 0; i < limit; i++)
-            {
-                output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[i])) + "\n";
-            }
-            output += "(...)";
+            arrayLimit = 2100;
         }
         else
         {
-            for (int i = 0; i < custom_audiences.Length; i++)
+            arrayLimit = custom_audiences.Length;
+        }
+
+        elementLimit = (arrayLimit - 1) / 7 + 1;
+
+        for (int i = 0; i < 7; i++)
+        {
+            int k;
+
+            if (elementLimit * 7 - arrayLimit < 7 - i)
             {
-                output += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[i])) + "\n";
+                k = elementLimit;
+            }
+            else
+            {
+                k = elementLimit - 1;
+            }
+
+            while (k > 0)
+            {
+                output[i] += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(custom_audiences[currentIndex])) + "\n";
+                currentIndex++;
+                k--;
             }
         }
+
         return output;
     }
 }
