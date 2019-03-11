@@ -4,10 +4,11 @@ using System.Text;
 public class AdsContactList
 {
     public string[] custom_audiences;
+    public int panelNumber = 7;
 
     public string[] toStringArray()
     {
-        string[] output = new string[7];
+        string[] output = new string[panelNumber];
         int elementLimit;
         int arrayLimit;
         int currentIndex = 0;
@@ -21,13 +22,13 @@ public class AdsContactList
             arrayLimit = custom_audiences.Length;
         }
 
-        elementLimit = (arrayLimit - 1) / 7 + 1;
+        elementLimit = (arrayLimit - 1) / panelNumber + 1;
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < panelNumber; i++)
         {
             int k;
 
-            if (elementLimit * 7 - arrayLimit < 7 - i)
+            if (elementLimit * panelNumber - arrayLimit < panelNumber - i)
             {
                 k = elementLimit;
             }
@@ -42,6 +43,11 @@ public class AdsContactList
                 currentIndex++;
                 k--;
             }
+        }
+
+        if (arrayLimit < custom_audiences.Length)
+        {
+            output[arrayLimit - 1] += "(...)";
         }
 
         return output;
