@@ -8,6 +8,13 @@ using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
 {
     public Text info;
+    public Text info2;
+    public Text info3;
+    public Text info4;
+    public Text info5;
+    public Text info6;
+    public Text info7;
+    public Text info8;
     AdsContactList dataAsJson;
     string dataAsString;
     private string _path;
@@ -37,6 +44,13 @@ public class OpenFile : MonoBehaviour
             dataAsString = dataAsJson.custom_audiences.Length + " businesses have your personal information.\n" + dataAsString;
             Debug.Log(dataAsJson.custom_audiences.Length);
             info.text = dataAsString;
+            info2.text = dataAsString;
+            info3.text = dataAsString;
+            info4.text = dataAsString;
+            info5.text = dataAsString;
+            info6.text = dataAsString;
+            info7.text = dataAsString;
+            info8.text = dataAsString;
         }
         else
         {
