@@ -14,23 +14,15 @@ public class OpenFile : MonoBehaviour
 
     public void OnClick()
     {
-
-
-        Debug.Log("clicked");
-        string folderPath = _path;
-
-        Debug.Log(folderPath);
-
-        string filePath = Path.Combine(folderPath + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
-
+        Debug.Log(_path);
+        string filePath = Path.Combine(_path + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
 
         Debug.Log(filePath);
-        if (filePath != null && filePath.Length != 0)
+        if (string.IsNullOrEmpty(filePath) && filePath.Length != 0)
         {
             string fileContent = File.ReadAllText(filePath);
             Debug.Log(fileContent);
 
-            //data = fileContent;
             dataAsJson = JsonUtility.FromJson<AdsContactList>(fileContent);
             dataAsString = dataAsJson.toString();
             Debug.Log(dataAsString);
@@ -45,6 +37,12 @@ public class OpenFile : MonoBehaviour
         }
     }
 
+    public void LoadAdsInterests()
+    {
+        string filePath = Path.Combine(_path + "/ads/ads_interests.json");
+
+    }
+
     void OnGUI()
     {
         GUILayout.Space(20);
@@ -52,7 +50,7 @@ public class OpenFile : MonoBehaviour
         GUILayout.Space(20);
         GUILayout.BeginVertical();
 
-        if (GUILayout.Button("Open File Directory") || Input.GetKeyDown("o"))
+        if (GUILayout.Button("Open Folder (O)") || Input.GetKeyDown("o"))
         {
             var paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
 
@@ -62,6 +60,11 @@ public class OpenFile : MonoBehaviour
             }
             _path = paths[0];
             OnClick();
+        }
+
+        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Interests (I)") || Input.GetKeyDown("i"))
+        {
+            Debug.Log("This pres the button");
         }
 
         GUILayout.EndVertical();
