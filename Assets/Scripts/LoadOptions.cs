@@ -27,16 +27,16 @@ public class LoadOptions
         return "";
     }
 
-    public string GetCustomMessage()
+    public string[] GetCustomMessage()
     {
         switch (selectedOption)
         {
             case 1:
-                return string.Format("{0} businesses have your personal information.", adsContactList.custom_audiences.Length);
+                return new string[] { adsContactList.custom_audiences.Length.ToString(), "businesses have your personal information." };
             case 2:
-                return string.Format("You have {0} interests.", adsInterest.topics.Length);
+                return new string[] { adsInterest.topics.Length.ToString(), "public interests"};
         }
-        return "";
+        return new string[0];
     }
 
 
