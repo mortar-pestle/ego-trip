@@ -35,11 +35,11 @@ public class OpenFile : MonoBehaviour
             info.text = options.GetCustomMessage();
             info2.text = dataAsString;
             info3.text = dataAsString;
-            //info4.text = dataAsString;
-            //info5.text = dataAsString;
-            //info6.text = dataAsString;
-            //info7.text = dataAsString;
-            //info8.text = dataAsString;
+            info4.text = dataAsString;
+            info5.text = dataAsString;
+            info6.text = dataAsString;
+            info7.text = dataAsString;
+            info8.text = dataAsString;
         }
         else
         {
