@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using SFB;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using System.Text;
 using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
@@ -10,12 +15,23 @@ public class OpenFile : MonoBehaviour
     public Text info;
     AdsContactList dataAsJson;
     string dataAsString;
-   //[MenuItem("Example/Overwrite Texture")]
-   public void OnClick()
-   {
-       Debug.Log("clicked");
+    private string _path;
 
-       string folderPath = EditorUtility.OpenFolderPanel("Load Facebook data", "", "");
+    public void OnClick()
+   {
+
+
+        Debug.Log("clicked");
+        string folderPath = "";
+
+        var paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
+
+        if (paths.Length == 0)
+        {
+            return;
+        }
+
+        folderPath = paths[0];
 
         Debug.Log(folderPath);
 
@@ -34,17 +50,11 @@ public class OpenFile : MonoBehaviour
             dataAsString = dataAsJson.custom_audiences.Length + " businesses have your personal information.\n" + dataAsString;
             Debug.Log(dataAsJson.custom_audiences.Length);
             info.text = dataAsString;
-       }
-        else
-        {
+       } 
+       else
+       {
             dataAsString = "File not found! Please navigate to the right directory.";
             Debug.LogError(dataAsString);
-        }
+       }
     }
-    // void OnGUI() {
-    //     if(dataAsString != null)
-    //     {
-    //         GUI.Box(new Rect(100, 100, 300, int.MaxValue), dataAsString);
-    //     }
-    //   }
 }
