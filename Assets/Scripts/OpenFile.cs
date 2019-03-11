@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
 {
     public Text info;
+    public Text info_Number;
     public Text info2;
     public Text info3;
     public Text info4;
@@ -32,7 +33,9 @@ public class OpenFile : MonoBehaviour
             dataAsString = options.GetData(fileContent);
             Debug.Log(dataAsString);
 
-            info.text = options.GetCustomMessage();
+            string[] message = options.GetCustomMessage();
+            info_Number.text = message[0];
+            info.text = message[1];
             info2.text = dataAsString;
             info3.text = dataAsString;
             info4.text = dataAsString;
@@ -48,12 +51,6 @@ public class OpenFile : MonoBehaviour
         }
     }
 
-    public void LoadAdsInterests()
-    {
-        string filePath = Path.Combine(_path + "/ads/ads_interests.json");
-
-    }
-
     void OnGUI()
     {
         GUILayout.Space(20);
@@ -61,31 +58,66 @@ public class OpenFile : MonoBehaviour
         GUILayout.Space(20);
         GUILayout.BeginVertical();
 
-        if (GUILayout.Button("Open Folder (O)") || Input.GetKeyDown("o"))
+        if (GUILayout.Button("Open Folder (O)"))
         {
-            var paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
-
-            if (paths.Length == 0)
-            {
-                return;
-            }
-            _path = paths[0];
-            LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+            ExecuteFunctions(1);
         }
 
-        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)") || Input.GetKeyDown("a"))
+        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)"))
         {
-            LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+            ExecuteFunctions(2);
         }
 
-        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Interests (I)") || Input.GetKeyDown("i"))
+        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Interests (I)") || Input.GetKeyUp("i"))
         {
-            LoadFile(LoadOptions.ADS_INTERESTS, "/ads/ads_interests.json");
+            ExecuteFunctions(3);
         }
 
         GUILayout.EndVertical();
         GUILayout.Space(20);
         GUILayout.Label(_path);
         GUILayout.EndHorizontal();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            ExecuteFunctions(1);
+        }
+
+        if (!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.A))
+        {
+            ExecuteFunctions(2);
+        }
+
+        if (!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.I))
+        {
+            ExecuteFunctions(3);
+        }
+    }
+
+    private void ExecuteFunctions(int function)
+    {
+        switch (function)
+        {
+            case 1:
+                string[] paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
+                if (paths.Length <= 0 || string.IsNullOrEmpty(paths[0]))
+                {
+                    return;
+                }
+                _path = paths[0];
+                LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+                break;
+            case 2:
+                LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+                break;
+            case 3:
+                LoadFile(LoadOptions.ADS_INTERESTS, "/ads/ads_interests.json");
+                break;
+            default:
+                break;
+        }
     }
 }
