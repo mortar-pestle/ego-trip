@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using UnityEngine;
+
+using System.Text;
 
 public class AdsContactList
 {
