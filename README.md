@@ -72,7 +72,7 @@ Some notes.
 
 ## Contributors
 
-This project is developed by these awersome contributors:
+This project is developed by these awesome contributors:
 
 - [Carlos Castro](https://github.com/zero4994)
 - [Ian McClerin](https://github.com/dejaviewdujour)
