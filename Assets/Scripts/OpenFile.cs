@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
 using SFB;
 
@@ -15,34 +13,33 @@ public class OpenFile : MonoBehaviour
     public Text info6;
     public Text info7;
     public Text info8;
-    AdsContactList dataAsJson;
+
     string dataAsString;
     private string _path;
 
-    public void OnClick()
+    public void LoadFile(int option, string file)
     {
         Debug.Log(_path);
-        string filePath = Path.Combine(_path + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+        string filePath = Path.Combine(_path + file);
 
         Debug.Log(filePath);
-        if (string.IsNullOrEmpty(filePath) && filePath.Length != 0)
+        if (!string.IsNullOrEmpty(filePath) && filePath.Length != 0)
         {
             string fileContent = File.ReadAllText(filePath);
             Debug.Log(fileContent);
+            LoadOptions options = new LoadOptions(option);
 
-            dataAsJson = JsonUtility.FromJson<AdsContactList>(fileContent);
-            dataAsString = dataAsJson.toString();
+            dataAsString = options.GetData(fileContent);
             Debug.Log(dataAsString);
-            dataAsString = dataAsJson.custom_audiences.Length + " businesses have your personal information.\n" + dataAsString;
-            Debug.Log(dataAsJson.custom_audiences.Length);
-            info.text = dataAsString;
+
+            info.text = options.GetCustomMessage();
             info2.text = dataAsString;
             info3.text = dataAsString;
-            info4.text = dataAsString;
-            info5.text = dataAsString;
-            info6.text = dataAsString;
-            info7.text = dataAsString;
-            info8.text = dataAsString;
+            //info4.text = dataAsString;
+            //info5.text = dataAsString;
+            //info6.text = dataAsString;
+            //info7.text = dataAsString;
+            //info8.text = dataAsString;
         }
         else
         {
@@ -73,12 +70,17 @@ public class OpenFile : MonoBehaviour
                 return;
             }
             _path = paths[0];
-            OnClick();
+            LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
+        }
+
+        if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)") || Input.GetKeyDown("a"))
+        {
+            LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
         }
 
         if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Interests (I)") || Input.GetKeyDown("i"))
         {
-            Debug.Log("This pres the button");
+            LoadFile(LoadOptions.ADS_INTERESTS, "/ads/ads_interests.json");
         }
 
         GUILayout.EndVertical();
