@@ -62,3 +62,15 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+    - stage: build
+      env: BUILD_TARGET=Android
+      script:
+        - "chmod +x ./ci/* && ./ci/docker_build.sh && ./ci/docker_build.sh"
+        - "zip -r Android.zip ./Builds/Android/"
+      deploy:
+        provider: releases
+        api_key: $GITHUB_API_KEY
+        file: Android.zip
+        skip_cleanup: true
+        on:
+          tags: true
