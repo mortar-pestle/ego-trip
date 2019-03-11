@@ -6,13 +6,9 @@ using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
 {
     public Text info;
+    public Text info_Number;
     public Text info2;
     public Text info3;
-    public Text info4;
-    public Text info5;
-    public Text info6;
-    public Text info7;
-    public Text info8;
 
     string dataAsString;
     private string _path;
@@ -32,26 +28,17 @@ public class OpenFile : MonoBehaviour
             dataAsString = options.GetData(fileContent);
             Debug.Log(dataAsString);
 
-            info.text = options.GetCustomMessage();
+            string[] message = options.GetCustomMessage();
+            info_Number.text = message[0];
+            info.text = message[1];
             info2.text = dataAsString;
             info3.text = dataAsString;
-            //info4.text = dataAsString;
-            //info5.text = dataAsString;
-            //info6.text = dataAsString;
-            //info7.text = dataAsString;
-            //info8.text = dataAsString;
         }
         else
         {
             dataAsString = "File not found! Please navigate to the right directory.";
             Debug.LogError(dataAsString);
         }
-    }
-
-    public void LoadAdsInterests()
-    {
-        string filePath = Path.Combine(_path + "/ads/ads_interests.json");
-
     }
 
     void OnGUI()
@@ -64,8 +51,10 @@ public class OpenFile : MonoBehaviour
         if (GUILayout.Button("Open Folder (O)") || Input.GetKeyDown("o"))
         {
             var paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
-
-            if (paths.Length == 0)
+            Debug.Log(paths.Length);
+            Debug.Log(paths[0]);
+            Debug.Log("ends");
+            if (paths.Length <= 0 || string.IsNullOrEmpty(paths[0]))
             {
                 return;
             }
