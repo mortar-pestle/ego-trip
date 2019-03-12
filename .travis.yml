@@ -3,7 +3,7 @@ language: bash
 env:
   global:
     - IMAGE_NAME=gableroux/unity3d:2018.3.7f1
-    - BUILD_NAME=Ego-Trip
+    - BUILD_NAME=MindSweeper
 services:
   - docker
 before_install:
