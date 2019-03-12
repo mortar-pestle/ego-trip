@@ -63,7 +63,9 @@ Before we can use the app, you will need to personally download your Facebook da
 Instructions on how to <a href="https://github.com/mortar-pestle/mindsweeper/wiki/Download-your-Facebook-data">download your Facebook data can be found here</a> as well as in your downloaded Mindsweeper folder.
 
 ## Opening Mindsweeper
-When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play! button when you are ready.
+When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play button when you are ready.
+
+_⚠️ **NOTE**: If you are using MaxOS, you might get a warning dialog that says "you cannot open the app downloaded from the unidentified developer. In this case, go to Apple menu > System Preferences, click Security & Privacy, and then click General. You can run the app by clicking "Open the app" at the bottom._
 
 <p align="center">
   <img src = "img/4.jpg" width="70%" alt="app configuration">
