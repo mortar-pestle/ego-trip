@@ -1,7 +1,7 @@
 <h1 align="center"> Mindsweeper </h1> <br>
 <p align="center">
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-    <img title="" src="/Users/Yes/Unity/ego-trip/img/logo.png" width="50%" alt="main pic">
+    <img title="" src="img/logo.png" width="50%" alt="main pic">
   </a>
 </p>
 
