@@ -18,7 +18,9 @@ jobs:
       env: BUILD_TARGET=StandaloneLinux64
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "zip -r StandaloneLinux64.zip ./Builds/StandaloneLinux64/"
+        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cd ./Builds/"
+        - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
@@ -30,7 +32,9 @@ jobs:
       env: BUILD_TARGET=StandaloneOSX
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "zip -r StandaloneOSX.zip ./Builds/StandaloneOSX/"
+        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cd ./Builds/"
+        - "zip -r StandaloneOSX.zip ./StandaloneOSX/"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
@@ -42,7 +46,7 @@ jobs:
       env: BUILD_TARGET=StandaloneWindows64
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "ls"
+        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
         - "zip -r StandaloneWindows64.zip ./StandaloneWindows64/"
       deploy:
@@ -56,7 +60,9 @@ jobs:
       env: BUILD_TARGET=WebGL
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "zip -r WebGL.zip ./Builds/WebGL/"
+        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cd ./Builds/"
+        - "zip -r WebGL.zip ./WebGL/"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
