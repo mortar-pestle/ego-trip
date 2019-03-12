@@ -9,16 +9,6 @@
   Do you know what Facebook has on you? 😈
 </p>
 
-<p align="center">
-  <a href="">
-    <img alt="SOME WEB STORE" title="" src="" width="140">
-  </a>
-
-  <a href="">
-    <img alt="SOME WEB STORE" title="" src="" width="140">
-  </a>
-</p>
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -41,10 +31,6 @@ Online security and privacy has never been more important. Facebook gathers a lo
 
 **Available for both Windows and MacOS.**
 
-<p align="center">
-  <img src = "" width=350 alt="some helpful pic">
-</p>
-
 ## Features
 
 A few of the things you can do with this app:
@@ -54,11 +40,7 @@ A few of the things you can do with this app:
  
 
 <p align="center">
-  <img src = "" width=700 alt="helpful pic1">
-</p>
-
-<p align="center">
-  <img src = "" width=700 alt="helpful pic2">
+  <img src = "/Users/Yes/Unity/ego-trip/img/1.jpg" width=350 alt="some helpful pic">
 </p>
 
 ## Download
@@ -77,9 +59,29 @@ Before we can use the app, you will need to personally download your Facebook da
 Instructions on how to <a href="https://github.com/mortar-pestle/mindsweeper/wiki/Download-your-Facebook-data">download your Facebook data can be found here</a> as well as in your downloaded Mindsweeper folder.
 
 ## Opening Mindsweeper
-When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play! button when you are ready. After the game boots up, you will see the prompt to hit the "<b>O</b>" key. Navigate to the folder that holds all of your Facebook Data and click <b>OK</b>.
+When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play! button when you are ready.
+
+<p align="center">
+  <img src = "/Users/Yes/Unity/ego-trip/img/4.jpg" width=350 alt="some helpful pic">
+</p>
+
+After the game boots up, you will see the prompt to hit the "<b>O</b>" key.
+
+<p align="center">
+  <img src = "/Users/Yes/Unity/ego-trip/img/3.jpg" width=350 alt="some helpful pic">
+</p>
+
+Navigate to the folder that holds all of your Facebook Data and click <b>OK</b>.
+
+<p align="center">
+  <img src = "/Users/Yes/Unity/ego-trip/img/2.jpg" width=350 alt="some helpful pic">
+</p>
 
 In your upper right are buttons and keyboard shortcuts to change what data you'll be displaying. Move your mouse to look in your desired direction.
+
+<p align="center">
+  <img src = "/Users/Yes/Unity/ego-trip/img/1.jpg" width=350 alt="some helpful pic">
+</p>
 
 ## When you finish
 It is also important that you clean up information once you used this application. Do not leave the files that contain your personal information on your hard drive. Make sure to do the following:
