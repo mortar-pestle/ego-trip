@@ -28,7 +28,7 @@
 
 ## Introduction
 
-[![Build Status](https://travis-ci.org/mortar-pestle/ego-trip.svg?branch=master)](https://travis-ci.org/mortar-pestle/ego-trip)
+[![Build Status](https://travis-ci.org/mortar-pestle/mindsweeper.svg?branch=master)](https://travis-ci.org/mortar-pestle/mindsweeper)
 [![Dependencies](https://img.shields.io/librariesio/github/mortar-pestle/ego-trip.svg)](https://github.com/mortar-pestle/mindsweeper/tree/master/Packages)
 ![Size](https://img.shields.io/github/repo-size/mortar-pestle/mindsweeper.svg)
 [![Issue Tracking](https://img.shields.io/github/issues/mortar-pestle/mindsweeper.svg)](https://github.com/mortar-pestle/mindsweeper/issues)
