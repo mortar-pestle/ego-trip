@@ -42,7 +42,9 @@ jobs:
       env: BUILD_TARGET=StandaloneWindows64
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "zip -r StandaloneWindows64.zip ./Builds/StandaloneWindows64/"
+        - "ls"
+        - "cd ./Builds/"
+        - "zip -r StandaloneWindows64.zip ./StandaloneWindows64/"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
