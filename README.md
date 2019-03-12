@@ -1,4 +1,4 @@
-<h1 align="center"> Ego trip </h1> <br>
+<h1 align="center"> Mindsweeper </h1> <br>
 <p align="center">
   <a href="">
     <img title="" src="" width="450" alt="main pic">
@@ -29,7 +29,11 @@
 
 Online security and privacy has never been more important. Facebook gathers a lot of personal data that advertisers can have access to. Mindsweeper helps you visualize your complex Facebook data in 3D and educates you on how this has happened and what you can do about it. <i>Note that this application cannot store your information and is safe to use as long as you are safe with your data.</i>
 
-**Available for both Windows and MacOS.**
+<p align="center">
+  <img src = "img/5.png" width=350 alt="some helpful pic">
+</p>
+
+**Currently available for both Windows and MacOS.**
 
 ## Features
 
@@ -40,7 +44,7 @@ A few of the things you can do with this app:
  
 
 <p align="center">
-  <img src = "/Users/Yes/Unity/ego-trip/img/1.jpg" width=350 alt="some helpful pic">
+  <img src = "img/1.jpg" width=350 alt="some helpful pic">
 </p>
 
 ## Download
@@ -62,25 +66,25 @@ Instructions on how to <a href="https://github.com/mortar-pestle/mindsweeper/wik
 When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play! button when you are ready.
 
 <p align="center">
-  <img src = "/Users/Yes/Unity/ego-trip/img/4.jpg" width=350 alt="some helpful pic">
+  <img src = "img/4.jpg" width=350 alt="some helpful pic">
 </p>
 
 After the game boots up, you will see the prompt to hit the "<b>O</b>" key.
 
 <p align="center">
-  <img src = "/Users/Yes/Unity/ego-trip/img/3.jpg" width=350 alt="some helpful pic">
+  <img src = "img/3.jpg" width=350 alt="some helpful pic">
 </p>
 
-Navigate to the folder that holds all of your Facebook Data and click <b>OK</b>.
+Navigate to the folder that holds all of your Facebook Data and click <b>Open</b>.
 
 <p align="center">
-  <img src = "/Users/Yes/Unity/ego-trip/img/2.jpg" width=350 alt="some helpful pic">
+  <img src = "img/2.jpg" width=350 alt="some helpful pic">
 </p>
 
 In your upper right are buttons and keyboard shortcuts to change what data you'll be displaying. Move your mouse to look in your desired direction.
 
 <p align="center">
-  <img src = "/Users/Yes/Unity/ego-trip/img/1.jpg" width=350 alt="some helpful pic">
+  <img src = "img/1.jpg" width=350 alt="some helpful pic">
 </p>
 
 ## When you finish
@@ -94,7 +98,7 @@ It is also important that you clean up information once you used this applicatio
 ## Additional Resources
 Still have questions? How did Facebook get all this information? How can you improve your online privacy? Want to delete your Facebook? 
 
-<b><a href="https://github.com/mortar-pestle/mindsweeper/wiki">Check out our Wiki!</a></b>
+<b><a href="https://github.com/mortar-pestle/mindsweeper/wiki">Check out our Wiki! 💣</a></b>
 
 ## Contributors
 
@@ -105,10 +109,12 @@ This project is developed by these awesome contributors:
 - [Toshiya Sasaki](https://github.com/toshyss)
 - [Yuma Sumi](https://github.com/y-yeah)
 
+[Contribution guidelines]() will be soon uploaded.
+
 
 ---
 
 <div align="center">
-🎮 <b>LICENSE</b> : CC7 Team Rose 🎮
-</br>This was app was made during our time at <a href="https://www.codechrysalis.io/">Code Chrysalis</a>
+🎮 <b>LICENSE</b> : CC7 Team Mortar and Pestle 🎮
+</br>This app was made during our time at <a href="https://www.codechrysalis.io/">Code Chrysalis</a>
 </div>
