@@ -18,9 +18,9 @@ jobs:
       env: BUILD_TARGET=StandaloneLinux64
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
-        - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/"
+        - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/ How_to_download_your_Facebook_Information.pdf"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
@@ -32,9 +32,9 @@ jobs:
       env: BUILD_TARGET=StandaloneOSX
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
-        - "zip -r StandaloneOSX.zip ./StandaloneOSX/"
+        - "zip -r StandaloneOSX.zip ./StandaloneOSX/ How_to_download_your_Facebook_Information.pdf"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
@@ -46,9 +46,9 @@ jobs:
       env: BUILD_TARGET=StandaloneWindows64
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
-        - "zip -r StandaloneWindows64.zip ./StandaloneWindows64/"
+        - "zip -r StandaloneWindows64.zip ./StandaloneWindows64/ How_to_download_your_Facebook_Information.pdf"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
@@ -60,9 +60,9 @@ jobs:
       env: BUILD_TARGET=WebGL
       script:
         - "chmod +x ./ci/* && ./ci/docker_build.sh"
-        - "cp How_to_download your_Facebook_Information.pdf ./Builds/"
+        - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
-        - "zip -r WebGL.zip ./WebGL/"
+        - "zip -r WebGL.zip ./WebGL/ How_to_download_your_Facebook_Information.pdf"
       deploy:
         provider: releases
         api_key: $GITHUB_API_KEY
