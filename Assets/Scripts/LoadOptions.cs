@@ -13,18 +13,19 @@ public class LoadOptions
         selectedOption = fileToLoad;
     }
 
-    public string GetData(string fileContent)
+    public string[] GetData(string fileContent)
     {
         switch (selectedOption)
         {
             case 1:
                 this.adsContactList = JsonUtility.FromJson<AdsContactList>(fileContent);
-                return this.adsContactList.toString();
+                return this.adsContactList.toStringArray();
             case 2:
                 this.adsInterest = JsonUtility.FromJson<AdsInterest>(fileContent);
-                return this.adsInterest.toString();
+                return this.adsInterest.toStringArray();
         }
-        return "";
+        string[] error = new string[1]{""};
+        return error;
     }
 
     public string[] GetCustomMessage()

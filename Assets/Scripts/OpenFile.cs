@@ -15,7 +15,7 @@ public class OpenFile : MonoBehaviour
     public Text info7;
     public Text info8;
 
-    string dataAsString;
+    string[] dataAsArray;
     private string _path;
 
     public void LoadFile(int option, string file)
@@ -30,24 +30,25 @@ public class OpenFile : MonoBehaviour
             Debug.Log(fileContent);
             LoadOptions options = new LoadOptions(option);
 
-            dataAsString = options.GetData(fileContent);
-            Debug.Log(dataAsString);
+            dataAsArray = options.GetData(fileContent);
+            Debug.Log(dataAsArray);
 
             string[] message = options.GetCustomMessage();
             info_Number.text = message[0];
             info.text = message[1];
-            info2.text = dataAsString;
-            info3.text = dataAsString;
-            info4.text = dataAsString;
-            info5.text = dataAsString;
-            info6.text = dataAsString;
-            info7.text = dataAsString;
-            info8.text = dataAsString;
+            info2.text = dataAsArray[0].ToString();
+            info3.text = dataAsArray[1].ToString();
+            info4.text = dataAsArray[2].ToString();
+            info5.text = dataAsArray[3].ToString();
+            info6.text = dataAsArray[4].ToString();
+            info7.text = dataAsArray[5].ToString();
+            info8.text = dataAsArray[6].ToString();
         }
         else
         {
-            dataAsString = "File not found! Please navigate to the right directory.";
-            Debug.LogError(dataAsString);
+            dataAsArray = new string[1];
+            dataAsArray[0] = "File not found! Please navigate to the right directory.";
+            Debug.LogError(dataAsArray);
         }
     }
 
