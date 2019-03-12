@@ -31,11 +31,11 @@
 [![Build Status](https://travis-ci.org/mortar-pestle/ego-trip.svg?branch=master)](https://travis-ci.org/mortar-pestle/ego-trip)
 [![Dependencies](https://img.shields.io/librariesio/github/mortar-pestle/ego-trip.svg)](https://github.com/mortar-pestle/mindsweeper/tree/master/Packages)
 ![Size](https://img.shields.io/github/repo-size/mortar-pestle/mindsweeper.svg)
-[![Issue Tracking](https://img.shields.io/github/issues/mortar-pestle/mindsweeper.svg)]()
-[![Issue Tracking](https://img.shields.io/github/issues-pr-raw/mortar-pestle/mindsweeper.svg)]()
-[![Social](https://img.shields.io/github/forks/mortar-pestle/mindsweeper.svg?label=Fork)]()
-[![Version](https://img.shields.io/github/release/mortar-pestle/mindsweeper.svg)]()
-[![Activity](https://img.shields.io/github/last-commit/mortar-pestle/mindsweeper.svg)]()
+[![Issue Tracking](https://img.shields.io/github/issues/mortar-pestle/mindsweeper.svg)](https://github.com/mortar-pestle/mindsweeper/issues)
+[![Issue Tracking](https://img.shields.io/github/issues-pr-raw/mortar-pestle/mindsweeper.svg)](https://github.com/mortar-pestle/mindsweeper/pulls)
+[![Social](https://img.shields.io/github/forks/mortar-pestle/mindsweeper.svg?label=Fork)](https://github.com/mortar-pestle/mindsweeper/network/members)
+[![Version](https://img.shields.io/github/release/mortar-pestle/mindsweeper.svg)](https://github.com/mortar-pestle/mindsweeper/releases)
+[![Activity](https://img.shields.io/github/last-commit/mortar-pestle/mindsweeper.svg)](https://github.com/mortar-pestle/mindsweeper/commits/master)
 
 Great explanation for this app.
 
