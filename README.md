@@ -1,4 +1,4 @@
-<h1 align="center"> APP NAME </h1> <br>
+<h1 align="center"> Ego trip </h1> <br>
 <p align="center">
   <a href="">
     <img title="" src="" width="450" alt="main pic">
@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  Do you know what Facebook has on you?
+  Do you know what Facebook has on you? 😈
 </p>
 
 <p align="center">
@@ -72,7 +72,7 @@ Some notes.
 
 ## Contributors
 
-This project is developed by these awersome contributors:
+This project is developed by these awesome contributors:
 
 - [Carlos Castro](https://github.com/zero4994)
 - [Ian McClerin](https://github.com/dejaviewdujour)
@@ -83,5 +83,5 @@ This project is developed by these awersome contributors:
 ---
 
 <div align="center">
-<b>LICENSE</b> : CC7 Team Rose
+🎮 <b>LICENSE</b> : CC7 Team Rose 🎮
 </div>
