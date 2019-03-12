@@ -116,5 +116,5 @@ This project is developed by these awesome contributors:
 
 <div align="center">
 🎮 <b>LICENSE</b> : CC7 Team Mortar and Pestle 🎮
-</br>This was app was made during our time at <a href="https://www.codechrysalis.io/">Code Chrysalis</a>
+</br>This app was made during our time at <a href="https://www.codechrysalis.io/">Code Chrysalis</a>
 </div>
