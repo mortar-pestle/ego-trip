@@ -1,7 +1,7 @@
 <h1 align="center"> Mindsweeper </h1> <br>
 <p align="center">
   <a href="">
-    <img title="" src="" width="100%" alt="main pic">
+    <img title="" src="" width="90%" alt="main pic">
   </a>
 </p>
 
@@ -44,7 +44,7 @@ A few of the things you can do with this app:
  
 
 <p align="center">
-  <img src = "img/1.jpg" width=350 alt="886 businesses have your personal information.">
+  <img src = "img/1.jpg" width="70%" alt="886 businesses have your personal information.">
 </p>
 
 ## Download
@@ -66,25 +66,25 @@ Instructions on how to <a href="https://github.com/mortar-pestle/mindsweeper/wik
 When launching the application file, you may be asked which resolution you would prefer. <b>Make sure you select the "Windowed" button.</b> Select the Play! button when you are ready.
 
 <p align="center">
-  <img src = "img/4.jpg" width=350 alt="app configuration">
+  <img src = "img/4.jpg" width="70%" alt="app configuration">
 </p>
 
 After the game boots up, you will see the prompt to hit the "<b>O</b>" key.
 
 <p align="center">
-  <img src = "img/3.jpg" width=350 alt="start screen">
+  <img src = "img/3.jpg" width="70%" alt="start screen">
 </p>
 
 Navigate to the folder that holds all of your Facebook Data and click <b>Open</b>.
 
 <p align="center">
-  <img src = "img/2.jpg" width=350 alt="open a folder">
+  <img src = "img/2.jpg" width="70%" alt="open a folder">
 </p>
 
 In your upper right are buttons and keyboard shortcuts to change what data you'll be displaying. Move your mouse to look in your desired direction.
 
 <p align="center">
-  <img src = "img/1.jpg" width=350 alt="result after selecting a folder">
+  <img src = "img/1.jpg" width="70%" alt="result after selecting a folder">
 </p>
 
 ## When you finish
