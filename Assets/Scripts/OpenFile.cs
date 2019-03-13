@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using SFB;
-
+using System.Collections;
 using UnityEngine.UI;
 public class OpenFile : MonoBehaviour
 {
@@ -59,6 +59,11 @@ public class OpenFile : MonoBehaviour
         GUILayout.Space(20);
         GUILayout.BeginVertical();
 
+        if (GUILayout.Button("Close this application (Q)") || Input.GetKeyUp("q"))
+        {
+            ExecuteFunctions(0);
+        }
+
         if (GUILayout.Button("Open Folder (O)"))
         {
             ExecuteFunctions(1);
@@ -82,6 +87,11 @@ public class OpenFile : MonoBehaviour
 
     private void Update()
     {
+        if (!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.Q))
+        {
+            ExecuteFunctions(0);
+        }
+
         if (Input.GetKeyUp(KeyCode.O))
         {
             ExecuteFunctions(1);
@@ -102,6 +112,9 @@ public class OpenFile : MonoBehaviour
     {
         switch (function)
         {
+            case 0:
+                Application.Quit();
+                break;
             case 1:
                 string[] paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
                 if (paths.Length <= 0 || string.IsNullOrEmpty(paths[0]))
