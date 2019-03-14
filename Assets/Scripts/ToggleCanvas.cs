@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class ToggleCanvas : MonoBehaviour
 {
     public GameObject Panel;
-    public void OpenPanel()
+    public void Update ()
     {
-        if (Panel != null)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            bool isActive = Panel.activeSelf;
-
-            Panel.SetActive(!isActive);
+            Panel.SetActive (false);
+            Debug.Log("False");
+        } 
+        else if (Input.GetKeyDown(KeyCode.B)){
+            Panel.SetActive (true);
+            Debug.Log("True");
         }
     }
-    
 }
