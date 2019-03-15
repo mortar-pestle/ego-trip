@@ -3,6 +3,7 @@ using System.IO;
 using SFB;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class OpenFile : MonoBehaviour
 {
     public Text info;
@@ -16,8 +17,12 @@ public class OpenFile : MonoBehaviour
     public Text info8;
 
     string[] dataAsArray;
-    private string _path;
+    static string _path;
 
+    public void OnSceneChanged()
+    {
+        ExecuteFunctions(1);
+    }
     public void LoadFile(int option, string file)
     {
         Debug.Log(_path);
@@ -34,15 +39,19 @@ public class OpenFile : MonoBehaviour
             Debug.Log(dataAsArray);
 
             string[] message = options.GetCustomMessage();
-            info_Number.text = message[0];
-            info.text = message[1];
-            info2.text = dataAsArray[0].ToString();
-            info3.text = dataAsArray[1].ToString();
-            info4.text = dataAsArray[2].ToString();
-            info5.text = dataAsArray[3].ToString();
-            info6.text = dataAsArray[4].ToString();
-            info7.text = dataAsArray[5].ToString();
-            info8.text = dataAsArray[6].ToString();
+
+            if (info != null)
+            {
+                info_Number.text = message[0];
+                info.text = message[1];
+                info2.text = dataAsArray[0].ToString();
+                info3.text = dataAsArray[1].ToString();
+                info4.text = dataAsArray[2].ToString();
+                info5.text = dataAsArray[3].ToString();
+                info6.text = dataAsArray[4].ToString();
+                info7.text = dataAsArray[5].ToString();
+                info8.text = dataAsArray[6].ToString();
+            }
         }
         else
         {
@@ -70,6 +79,7 @@ public class OpenFile : MonoBehaviour
         }
 
         if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)"))
+        // if (GUILayout.Button("Ads Contact List (A)"))
         {
             ExecuteFunctions(2);
         }
@@ -97,6 +107,7 @@ public class OpenFile : MonoBehaviour
             ExecuteFunctions(1);
         }
 
+        // if (Input.GetKeyUp(KeyCode.A))
         if (!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.A))
         {
             ExecuteFunctions(2);
