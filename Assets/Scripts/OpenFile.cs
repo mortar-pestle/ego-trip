@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using SFB;
 using System.IO;
-using SFB;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class OpenFile : MonoBehaviour
@@ -93,7 +93,6 @@ public class OpenFile : MonoBehaviour
         }
 
         if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)"))
-        // if (GUILayout.Button("Ads Contact List (A)"))
         {
             ExecuteFunctions(2);
         }
