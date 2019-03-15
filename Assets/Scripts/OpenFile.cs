@@ -19,9 +19,14 @@ public class OpenFile : MonoBehaviour
     string[] dataAsArray;
     static string _path;
 
-    public void OnSceneChanged()
+    public bool OnSceneChanged()
     {
         ExecuteFunctions(1);
+        if (_path == null)
+        {
+            return false;
+        }
+        return true;
     }
     public void LoadFile(int option, string file)
     {
@@ -73,9 +78,18 @@ public class OpenFile : MonoBehaviour
             ExecuteFunctions(0);
         }
 
-        if (GUILayout.Button("Open Folder (O)"))
+        // if (GUILayout.Button("Open Folder (O)"))
+        // {
+        //     ExecuteFunctions(1);
+        // }
+
+        // we might not need this!
+        if (_path == null && SceneManager.GetActiveScene().name == "SampleScene")
         {
-            ExecuteFunctions(1);
+            if (GUILayout.Button("ERROR: Open the right folder again (R)"))
+            {
+                SceneManager.LoadScene("StartScene");
+            }
         }
 
         if (!string.IsNullOrEmpty(_path) && GUILayout.Button("Ads Contact List (A)"))
@@ -102,12 +116,17 @@ public class OpenFile : MonoBehaviour
             ExecuteFunctions(0);
         }
 
-        if (Input.GetKeyUp(KeyCode.O))
+        // if (Input.GetKeyUp(KeyCode.O))
+        // {
+        //     ExecuteFunctions(1);
+        // }
+
+        // we might not need this!
+        if (Input.GetKeyUp(KeyCode.R))
         {
-            ExecuteFunctions(1);
+            SceneManager.LoadScene("StartScene");
         }
 
-        // if (Input.GetKeyUp(KeyCode.A))
         if (!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.A))
         {
             ExecuteFunctions(2);
