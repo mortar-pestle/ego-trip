@@ -16,27 +16,11 @@ public class SceneSwitcher : MonoBehaviour
 
     public void GotoMainScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
         OpenFile openFile = new OpenFile();
-        openFile.OnSceneChanged();
-
-        while (asyncLoad.isDone)
+        bool isNull = openFile.OnSceneChanged();
+        if (isNull)
         {
-            // string[] paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", "", false);
-            // if (paths.Length <= 0 || string.IsNullOrEmpty(paths[0]))
-            // {
-            //     return;
-            // }
-            // else
-            // {
-            //     _path = paths[0];
-            //     LoadFile(LoadOptions.ADS_CONTACT_LIST, "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
-            // }
-            // string filePath = Path.Combine(paths[0] + "/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json");
-            // Debug.Log("AHAHA");
-            // Debug.Log(filePath);
-            // Debug.Log("AHAHA");
-
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
