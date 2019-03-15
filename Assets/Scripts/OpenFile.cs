@@ -102,6 +102,11 @@ public class OpenFile : MonoBehaviour
             ExecuteFunctions(3);
         }
 
+        if(!string.IsNullOrEmpty(_path) && GUILayout.Button("Apps and Websites (W)") || Input.GetKeyUp("w"))
+        {
+            ExecuteFunctions(4);
+        }
+
         GUILayout.EndVertical();
         GUILayout.Space(20);
         GUILayout.Label(_path);
@@ -135,6 +140,11 @@ public class OpenFile : MonoBehaviour
         {
             ExecuteFunctions(3);
         }
+
+        if(!string.IsNullOrEmpty(_path) && Input.GetKeyUp(KeyCode.W))
+        {
+            ExecuteFunctions(4);
+        }
     }
 
     private void ExecuteFunctions(int function)
@@ -158,6 +168,9 @@ public class OpenFile : MonoBehaviour
                 break;
             case 3:
                 LoadFile(LoadOptions.ADS_INTERESTS, "/ads/ads_interests.json");
+                break;
+            case 4:
+                LoadFile(LoadOptions.APPS_AND_WEBSITES, "/apps_and_websites/apps_and_websites.json");
                 break;
             default:
                 break;

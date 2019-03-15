@@ -12,6 +12,7 @@ public class AdsContactList
         int elementLimit;
         int arrayLimit;
         int currentIndex = 0;
+        Debug.Log(custom_audiences);
 
         if (custom_audiences.Length >= 2100)
         {
