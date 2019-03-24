@@ -23,6 +23,12 @@ jobs:
         - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/ How_to_download_your_Facebook_Information.pdf"
         - "mkdir deploy"
         - "cp StandaloneLinux64.zip ./deploy"
+        - "pwd"
+        - "ls"
+        - "cd ./deploy"
+        - "pwd"
+        - "ls"
+        - "cd .."
       deploy:
         provider: s3
         # api_key: $GITHUB_API_KEY
