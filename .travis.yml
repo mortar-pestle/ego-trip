@@ -27,7 +27,7 @@ jobs:
         provider: s3
         # api_key: $GITHUB_API_KEY
         # file: StandaloneLinux64.zip
-        # skip_cleanup: true
+        skip_cleanup: true
         # on:
         #   tags: true
         access_key_id: $ACCESS_KEY_ID
