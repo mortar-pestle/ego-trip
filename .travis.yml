@@ -21,6 +21,9 @@ jobs:
         - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
         - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/ How_to_download_your_Facebook_Information.pdf"
+        - "ls"
+        - "chmod -R 777 ./StandaloneLinux64/"
+        - "chmod -R 755 ./StandaloneLinux64/"
         - "rm -rf ./StandaloneLinux64/"
       deploy:
         provider: s3
