@@ -22,12 +22,17 @@ jobs:
         - "cd ./Builds/"
         - "zip -r StandaloneLinux64.zip ./StandaloneLinux64/ How_to_download_your_Facebook_Information.pdf"
       deploy:
-        provider: releases
-        api_key: $GITHUB_API_KEY
-        file: StandaloneLinux64.zip
-        skip_cleanup: true
-        on:
-          tags: true
+        provider: s3
+        # api_key: $GITHUB_API_KEY
+        # file: StandaloneLinux64.zip
+        # skip_cleanup: true
+        # on:
+        #   tags: true
+        access_key_id: $ACCESS_KEY_ID
+        secret_access_key: $SECRET_ACCESS_KEY
+        bucket: $BUCKET_NAME
+        region: us-west-1
+        local_dir: ./Builds/StandaloneLinux64.zip
     - stage: build
       env: BUILD_TARGET=StandaloneOSX
       script:
@@ -35,13 +40,13 @@ jobs:
         - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
         - "zip -r StandaloneOSX.zip ./StandaloneOSX/ How_to_download_your_Facebook_Information.pdf"
-      deploy:
-        provider: releases
-        api_key: $GITHUB_API_KEY
-        file: StandaloneOSX.zip
-        skip_cleanup: true
-        on:
-          tags: true
+      # deploy:
+      #   provider: releases
+      #   api_key: $GITHUB_API_KEY
+      #   file: StandaloneOSX.zip
+      #   skip_cleanup: true
+      #   on:
+      #     tags: true
     - stage: build
       env: BUILD_TARGET=StandaloneWindows64
       script:
@@ -49,13 +54,13 @@ jobs:
         - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
         - "zip -r StandaloneWindows64.zip ./StandaloneWindows64/ How_to_download_your_Facebook_Information.pdf"
-      deploy:
-        provider: releases
-        api_key: $GITHUB_API_KEY
-        file: StandaloneWindows64.zip
-        skip_cleanup: true
-        on:
-          tags: true
+      # deploy:
+      #   provider: releases
+      #   api_key: $GITHUB_API_KEY
+      #   file: StandaloneWindows64.zip
+      #   skip_cleanup: true
+      #   on:
+      #     tags: true
     - stage: build
       env: BUILD_TARGET=WebGL
       script:
@@ -63,10 +68,10 @@ jobs:
         - "cp How_to_download_your_Facebook_Information.pdf ./Builds/"
         - "cd ./Builds/"
         - "zip -r WebGL.zip ./WebGL/ How_to_download_your_Facebook_Information.pdf"
-      deploy:
-        provider: releases
-        api_key: $GITHUB_API_KEY
-        file: WebGL.zip
-        skip_cleanup: true
-        on:
-          tags: true
+      # deploy:
+      #   provider: releases
+      #   api_key: $GITHUB_API_KEY
+      #   file: WebGL.zip
+      #   skip_cleanup: true
+      #   on:
+      #     tags: true
