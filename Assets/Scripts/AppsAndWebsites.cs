@@ -5,13 +5,13 @@ using System.Text;
 
 public class AandW
 {
-    public string name { get; set; }
-    public double added_timestamp { get; set; }
+    public string name;
+    public double added_timestamp;
 
     public AandW(string name, double added_timestamp)
     {
-        name = name;
-        added_timestamp = added_timestamp;
+        this.name = name;
+        this.added_timestamp = added_timestamp;
     }
     // public string Name { get; set; }
     // public System.DateTime Added_timestamp { get; set; }
@@ -65,7 +65,7 @@ public class AppsAndWebsites
             while (k > 0)
             {
                 // output[i] += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(installed_apps[currentIndex])) + "\n";
-                output[i] += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(installed_apps[currentIndex].name)) + " / " + UnixTimeStampToDateTime(installed_apps[currentIndex].added_timestamp).ToString() + "\n";
+                //output[i] += Encoding.UTF8.GetString(Encoding.GetEncoding("iso-8859-1").GetBytes(installed_apps[currentIndex].name)) + " / " + UnixTimeStampToDateTime(installed_apps[currentIndex].added_timestamp).ToString() + "\n";
                 currentIndex++;
                 k--;
             }
